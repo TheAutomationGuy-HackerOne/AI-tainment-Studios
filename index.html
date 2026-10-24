@@ -27,18 +27,29 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <div class="wrap">
-        <p class="hero-kicker">UK software studio</p>
-        <h1>Games and tools, built with care</h1>
-        <p class="hero-lead">
-          AI-tainment Studios is an independent UK studio creating playable worlds
-          and practical applications — clear design, real data where it matters,
-          and software that stays out of the way.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">See projects</a>
-          <a class="btn btn-ghost" href="https://github.com/TheAutomationGuy-HackerOne" rel="noopener noreferrer">GitHub</a>
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <p class="hero-kicker">UK software studio</p>
+          <h1>Games and tools, built with care</h1>
+          <p class="hero-lead">
+            AI-tainment Studios is an independent UK studio creating playable worlds
+            and practical applications — clear design, real data where it matters,
+            and software that stays out of the way.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">See projects</a>
+            <a class="btn btn-ghost" href="https://github.com/TheAutomationGuy-HackerOne" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
+        <figure class="hero-art">
+          <img
+            src="assets/hero-studio.jpg"
+            alt="Studio artwork — games and tools"
+            width="960"
+            height="720"
+            decoding="async"
+          >
+        </figure>
       </div>
     </section>
 
@@ -51,61 +62,85 @@
 
         <div class="projects-grid">
           <article class="card">
-            <div class="card-top">
-              <h3>IONWAKE</h3>
-              <span class="card-status">Playable</span>
+            <div class="card-media">
+              <img src="assets/card-ionwake.jpg" alt="IONWAKE arcade game artwork" width="800" height="600" loading="lazy" decoding="async">
             </div>
-            <p>
-              A fast arcade game: break the fleet, grab power-ups, hold the high score.
-              Browser build available to play now.
-            </p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-small" href="https://theautomationguy-hackerone.github.io/IONWAKE-Play/" rel="noopener noreferrer">Play</a>
-              <a class="btn btn-ghost btn-small" href="https://github.com/TheAutomationGuy-HackerOne/IONWAKE-Play" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <h3>GridForge</h3>
-              <span class="card-status dev">In development</span>
-            </div>
-            <p>
-              Working title <strong>Attack Your Block</strong>. A free-roam Great Britain
-              sandbox built from open geographic data — pick a place and explore the
-              world that streams in around you. Early test builds are published while
-              the game is still under active development.
-            </p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-small" href="https://github.com/TheAutomationGuy-HackerOne/GridForge-Play" rel="noopener noreferrer">Test builds</a>
+            <div class="card-body">
+              <div class="card-top">
+                <h3>IONWAKE</h3>
+                <span class="card-status">Playable</span>
+              </div>
+              <p>
+                A fast arcade game: break the fleet, grab power-ups, hold the high score.
+                Browser build available to play now.
+              </p>
+              <div class="card-actions">
+                <a class="btn btn-primary btn-small" href="https://theautomationguy-hackerone.github.io/IONWAKE-Play/" rel="noopener noreferrer">Play</a>
+                <a class="btn btn-ghost btn-small" href="https://github.com/TheAutomationGuy-HackerOne/IONWAKE-Play" rel="noopener noreferrer">GitHub</a>
+              </div>
             </div>
           </article>
 
           <article class="card">
-            <div class="card-top">
-              <h3>Modbus 40001</h3>
-              <span class="card-status">App Store</span>
+            <div class="card-media">
+              <img src="assets/card-gridforge.jpg" alt="GridForge map sandbox artwork" width="800" height="600" loading="lazy" decoding="async">
             </div>
-            <p>
-              A Modbus/TCP master and slave for iPhone and iPad — poll coils and
-              registers on industrial equipment, write values when you need to, with
-              no accounts, analytics, or advertising. Settings stay on your device.
-            </p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-small" href="https://apps.apple.com/app/modbus-40001/id6799202584" rel="noopener noreferrer">App Store</a>
-              <a class="btn btn-ghost btn-small" href="https://theautomationguy-hackerone.github.io/Modbus-40001-Privacy/" rel="noopener noreferrer">Privacy</a>
+            <div class="card-body">
+              <div class="card-top">
+                <h3>GridForge</h3>
+                <span class="card-status dev">In development</span>
+              </div>
+              <p>
+                Working title <strong>Attack Your Block</strong>. A free-roam Great Britain
+                sandbox built from open geographic data — pick a place and explore the
+                world that streams in around you. Early test builds are published while
+                the game is still under active development.
+              </p>
+              <div class="card-actions">
+                <a class="btn btn-primary btn-small" href="https://github.com/TheAutomationGuy-HackerOne/GridForge-Play" rel="noopener noreferrer">Test builds</a>
+              </div>
             </div>
           </article>
 
           <article class="card">
-            <div class="card-top">
-              <h3>Roastie</h3>
-              <span class="card-status">Studio project</span>
+            <div class="card-media">
+              <img src="assets/card-modbus.jpg" alt="Modbus 40001 industrial controls artwork" width="800" height="600" loading="lazy" decoding="async">
             </div>
-            <p>
-              An iOS app from the studio. A public product page is not listed here yet;
-              details will follow when they are ready to share.
-            </p>
+            <div class="card-body">
+              <div class="card-top">
+                <h3>Modbus 40001</h3>
+                <span class="card-status">App Store</span>
+              </div>
+              <p>
+                A Modbus/TCP master and slave for iPhone and iPad — poll coils and
+                registers on industrial equipment, write values when you need to, with
+                no accounts, analytics, or advertising. Settings stay on your device.
+              </p>
+              <div class="card-actions">
+                <a class="btn btn-primary btn-small" href="https://apps.apple.com/app/modbus-40001/id6799202584" rel="noopener noreferrer">App Store</a>
+                <a class="btn btn-ghost btn-small" href="https://theautomationguy-hackerone.github.io/Modbus-40001-Privacy/" rel="noopener noreferrer">Privacy</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media">
+              <img src="assets/card-roastie.jpg" alt="Roastie Cooking meal planner artwork" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="card-body">
+              <div class="card-top">
+                <h3>Roastie Cooking</h3>
+                <span class="card-status">App Store</span>
+              </div>
+              <p>
+                A roast-meal cooking planner for iPhone and iPad — schedules backward
+                from serving time with templates and notifications. No ads, accounts,
+                or tracking.
+              </p>
+              <div class="card-actions">
+                <a class="btn btn-primary btn-small" href="https://apps.apple.com/app/roastie-cooking/id6757252557" rel="noopener noreferrer">App Store</a>
+              </div>
+            </div>
           </article>
         </div>
       </div>
