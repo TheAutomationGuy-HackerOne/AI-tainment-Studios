@@ -14,6 +14,7 @@
   --chip-bg: rgba(56, 189, 248, 0.1);
   --radius: 14px;
   --max: 1080px;
+  --pad: 1.25rem;
   --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
@@ -25,11 +26,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
   font-family: var(--font);
   font-size: 1rem;
   line-height: 1.6;
@@ -43,6 +47,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -80,7 +85,7 @@ a:focus-visible,
 }
 
 .wrap {
-  width: min(var(--max), calc(100% - 2rem));
+  width: min(var(--max), calc(100% - (var(--pad) * 2)));
   margin-inline: auto;
 }
 
@@ -101,6 +106,7 @@ a:focus-visible,
   justify-content: space-between;
   gap: 1rem;
   padding: 0.9rem 0;
+  min-width: 0;
 }
 
 .brand {
@@ -111,11 +117,18 @@ a:focus-visible,
   text-decoration: none;
   font-weight: 650;
   letter-spacing: 0.01em;
+  min-width: 0;
 }
 
 .brand:hover {
   text-decoration: none;
   color: var(--text);
+}
+
+.brand > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .brand-mark {
@@ -141,6 +154,7 @@ a:focus-visible,
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .nav a {
@@ -148,6 +162,10 @@ a:focus-visible,
   font-size: 0.92rem;
   font-weight: 500;
   text-decoration: none;
+  padding: 0.35rem 0;
+  min-height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav a:hover {
@@ -189,10 +207,11 @@ a:focus-visible,
 
 .hero h1 {
   margin: 0 0 0.85rem;
-  font-size: clamp(2.1rem, 5vw, 3.25rem);
+  font-size: clamp(1.85rem, 6vw, 3.25rem);
   line-height: 1.12;
   font-weight: 700;
   letter-spacing: -0.03em;
+  overflow-wrap: break-word;
 }
 
 .hero-lead {
@@ -211,6 +230,8 @@ a:focus-visible,
 
 .hero-art {
   margin: 0;
+  max-width: 100%;
+  min-width: 0;
   border-radius: calc(var(--radius) + 4px);
   overflow: hidden;
   border: 1px solid var(--border-strong);
@@ -223,8 +244,10 @@ a:focus-visible,
 
 .hero-art img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: center;
 }
 
 .btn {
@@ -233,6 +256,7 @@ a:focus-visible,
   justify-content: center;
   gap: 0.4rem;
   padding: 0.7rem 1.15rem;
+  min-height: 2.75rem;
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.95rem;
@@ -267,7 +291,8 @@ a:focus-visible,
 }
 
 .btn-small {
-  padding: 0.5rem 0.85rem;
+  padding: 0.55rem 0.9rem;
+  min-height: 2.5rem;
   font-size: 0.88rem;
 }
 
@@ -301,27 +326,6 @@ section {
   gap: 1rem;
 }
 
-@media (max-width: 860px) {
-  .hero-layout {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
-  .hero-art {
-    max-width: 32rem;
-  }
-}
-
-@media (max-width: 720px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .nav {
-    gap: 0.85rem;
-  }
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -332,6 +336,7 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   min-height: 100%;
+  min-width: 0;
 }
 
 .card:hover {
@@ -343,12 +348,16 @@ section {
   margin: 0;
   background: #0a1018;
   border-bottom: 1px solid var(--border);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .card-media img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  object-position: center;
 }
 
 .card-body {
@@ -357,6 +366,7 @@ section {
   gap: 0.85rem;
   padding: 1.2rem 1.35rem 1.25rem;
   flex: 1;
+  min-width: 0;
 }
 
 .card-top {
@@ -364,12 +374,15 @@ section {
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .card h3 {
   margin: 0;
   font-size: 1.15rem;
   letter-spacing: -0.01em;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .card-status {
@@ -419,6 +432,7 @@ section {
 .contact-panel p {
   margin: 0 0 0.85rem;
   color: var(--text-muted);
+  overflow-wrap: break-word;
 }
 
 .about-panel p:last-child,
@@ -455,4 +469,136 @@ section {
 
 .footer-domains span {
   color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+/* Tablet: stack hero, keep 2-col cards where space allows */
+
+@media (max-width: 860px) {
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .hero-art {
+    max-width: 36rem;
+    width: 100%;
+  }
+
+  .hero-lead {
+    font-size: 1.05rem;
+  }
+}
+
+/* Narrow tablet / large phone: single-column cards */
+
+@media (max-width: 720px) {
+  :root {
+    --pad: 1.1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .nav {
+    gap: 0.35rem 1rem;
+  }
+}
+
+/* Phones (~320–480px) */
+
+@media (max-width: 480px) {
+  :root {
+    --pad: 1rem;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.75rem 0;
+  }
+
+  .brand {
+    font-size: 0.98rem;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 0.15rem 1.1rem;
+    justify-content: flex-start;
+  }
+
+  .nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 2.25rem 0 1.75rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.35rem;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 auto;
+    min-width: calc(50% - 0.4rem);
+  }
+
+  .hero-art {
+    max-width: none;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+
+  .section-head h2 {
+    font-size: 1.35rem;
+  }
+
+  .card-body {
+    padding: 1.05rem 1.1rem 1.15rem;
+  }
+
+  .about-panel,
+  .contact-panel {
+    padding: 1.15rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}
+
+/* Very small phones */
+
+@media (max-width: 360px) {
+  :root {
+    --pad: 0.85rem;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+  }
+
+  .brand > span:last-child {
+    font-size: 0.92rem;
+  }
 }
